@@ -1,0 +1,282 @@
+<!DOCTYPE html><html style="font-size: 16px;"><head>
+<title>Story Tool | The Storytelling Project</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<script src="/js/infusion-all.js"></script><style type="text/css">.fl-progEnhance-basic, .fl-ProgEnhance-basic { display: none; } .fl-progEnhance-enhanced, .fl-ProgEnhance-enhanced { display: block; }</style>
+
+<!-- UIO stylesheets -->
+<link rel="stylesheet" type="text/css" href="/css/Enactors.css">
+<link rel="stylesheet" type="text/css" href="/css/PrefsEditor.css">
+<link rel="stylesheet" type="text/css" href="/css/SeparatedPanelPrefsEditor.css">
+<link rel="stylesheet" type="text/css" href="/css/Orator.css">
+
+<script src="/js/handlebars.js"></script>
+<script src="/js/markdown-it.js"></script>
+<script src="/js/binder.js"></script>
+<script src="/js/transforms.js"></script>
+<script src="/js/equals.js"></script>
+<script src="/js/helper.js"></script>
+<script src="/js/jsonify.js"></script>
+<script src="/js/md-common.js"></script>
+<script src="/js/messageHelper_1.js"></script>
+<script src="/js/renderer_1.js"></script>
+<script src="/js/ajaxCapable.js"></script>
+<script src="/js/hasRequiredOptions.js"></script>
+<script src="/js/md-client.js"></script>
+<script src="/js/messageHelper.js"></script>
+<script src="/js/renderer.js"></script>
+<script src="/js/templateAware.js"></script>
+<script src="/js/templateFormControl.js"></script>
+<script src="/js/templateManager.js"></script>
+<script src="/js/templateMessage.js"></script>
+<script src="/js/templateRequestAndRender.js"></script>
+
+<script src="/js/locationBar.js"></script>
+
+<script src="/js/dynamicViewComponentManager.js"></script>
+<script src="/js/binder_1.js"></script>
+<script src="/js/block.js"></script>
+<script src="/js/block-audio.js"></script>
+<script src="/js/block-image.js"></script>
+<script src="/js/block-text.js"></script>
+<script src="/js/block-video.js"></script>
+<script src="/js/block-timeBased.js"></script>
+<script src="/js/blockUi.js"></script>
+<script src="/js/blockUi-editor.js"></script>
+<script src="/js/blockUi-editor-audioBlockEditor.js"></script>
+<script src="/js/blockUi-editor-imageBlockEditor.js"></script>
+<script src="/js/blockUi-editor-mediaBlockEditor.js"></script>
+<script src="/js/blockUi-editor-textBlockEditor.js"></script>
+<script src="/js/blockUi-editor-videoBlockEditor.js"></script>
+<script src="/js/blockUi-audioBlockViewer.js"></script>
+<script src="/js/blockUi-imageBlockViewer.js"></script>
+<script src="/js/blockUi-textBlockViewer.js"></script>
+<script src="/js/blockUi-videoBlockViewer.js"></script>
+<script src="/js/blockUi-timeBased.js"></script>
+<script src="/js/base-page-storyEdit.js"></script>
+<script src="/js/base-page-storyNotFound.js"></script>
+<script src="/js/base-page.js"></script>
+<script src="/js/story.js"></script>
+<script src="/js/templateManager_1.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/ui-authorControls.js"></script>
+<script src="/js/ui-menu.js"></script>
+<script src="/js/ui-storyEditor.js"></script>
+<script src="/js/ui-storyViewer.js"></script>
+<script src="/js/uploader.js"></script>
+<script src="/js/transforms_1.js"></script>
+<script src="/js/UIOMultilingualDemo.js"></script>
+
+<link rel="stylesheet" href="/css/normalize.css">
+
+<link href="/css/css_1.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/storyTelling.css">
+<link rel="stylesheet" href="/css/fluid.css">
+
+<script src="/js/storyTellingServerUI.js"></script>
+
+<!--
+    SJRK-435: This style rule is needed to hide the UIO Table of Contents element.
+              Using inline styling on the element is not sufficient, as UIO would
+              make the element reappear after turning the preference off and & on
+
+              Please see the Jira for more info:
+              https://issues.fluidproject.org/browse/SJRK-435
+-->
+<style>
+    .flc-toc-tocContainer {
+        display: none !important;
+    }
+</style>
+
+<link rel="stylesheet" type="text/css" href="/css/karisma.css"></head>
+<body id="fluid-id-bdtflb15-4106" class="fl-theme-prefsEditor-default" style="line-height: 1.15;">
+
+<div class="sjrk-prefsEditor-container">
+    <!-- BEGIN markup for Preference Editor -->
+   <div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel" id="fluid-id-bdtflb15-2147">
+       <!--
+           This div is for the sliding panel bar that shows and hides the Preference Editor controls in the mobile view.
+           A separate panel bar for mobile displays is needed to preserver the correct tab order.
+       -->
+       <div class="fl-panelBar fl-panelBar-smallScreen">
+           <span class="fl-prefsEditor-buttons">
+               <button class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide" role="button" aria-controls="fluid-id-bdtflb15-4157" aria-label="Mostrar preferencias" aria-pressed="false" aria-expanded="false">+ Mostrar preferencias</button>
+               <button class="flc-prefsEditor-reset fl-prefsEditor-reset" aria-controls="fluid-id-bdtflb15-4157" role="button" style="display: none;"><span class="fl-icon-undo"></span> Reset</button>
+           </span>
+       </div>
+
+       <!-- This is the div that will contain the Preference Editor component -->
+       <div class="flc-slidingPanel-panel flc-prefsEditor-iframe" id="fluid-id-bdtflb15-4157" aria-label="Preferencias de usuario" role="group" style="height: 0px;"><iframe class="flc-iframe fl-prefsEditor-separatedPanel-iframe" src="node_modules/infusion/src/framework/preferences/html/SeparatedPanelPrefsEditorFrame.html" style="display: none; height: 0px;"></iframe></div>
+
+       <!--
+           This div is for the sliding panel bar that shows and hides the Preference Editor controls in the desktop view.
+           A separate panel bar for desktop displays is needed to preserver the correct tab order.
+       -->
+       <div class="fl-panelBar fl-panelBar-wideScreen">
+           <span class="fl-prefsEditor-buttons">
+               <button class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide" role="button" aria-controls="fluid-id-bdtflb15-4157" aria-label="Mostrar preferencias" aria-pressed="false" aria-expanded="false">+ Mostrar preferencias</button>
+               <button class="flc-prefsEditor-reset fl-prefsEditor-reset" aria-controls="fluid-id-bdtflb15-4157" role="button" style="display: none;"><span class="fl-icon-undo"></span> Reset</button>
+           </span>
+       </div>
+   </div>
+   <!-- END markup for Preference Editor -->
+</div>
+
+<div class="sjrk-st-author-controls-container sjrkc-st-author-controls-container"></div>
+<header class="sjrk-st-page-header-container sjrkc-st-page-header-container"><div class="sjrk-st-page-header-logo-container">
+    <a href="/es/">
+        <img class="sjrk-st-page-header-logo" alt="" src="/images/logo.png">
+    </a>
+</div>
+<div class="sjrk-st-page-header">
+    <span class="sjrk-st-page-header-main-title">El planeta es la escuela</span>
+</div>
+</header>
+
+<!-- This div is for the table of contents feature provided by the Preferences Editor -->
+<!-- SJRK-435: this element is always hidden on this page (see note in style tag above) -->
+<div class="flc-toc-tocContainer toc" style="display: none;"><!-- Table of contents template -->
+<h2 class="flc-toc-header">Tabla de contenido</h2>
+
+</div>
+
+<main class="sjrk-st-page-content-container sjrk-edit-page-container sjrkc-edit-page-container" hidden="">
+    <div class="sjrk-edit-left-container sjrkc-edit-left-container"><div class="sjrk-st-karisma-sidebar sjrk-st-karisma-sidebar-left">
+    <img src="/images/person-camera.png" alt="a nice person holding a camera and smiling">
+</div>
+</div>
+    <div class="sjrk-main-container sjrkc-main-container">
+        <div class="sjrk-st-menu sjrkc-st-menu" id="fluid-id-bdtflb15-5085">    <div lang="es" class="sjrk-st-menu-story-builder-title">
+            <a href="/es/storyBrowse.html">Mostrar historias</a>
+    </div>
+<div lang="es" class="sjrk-st-menu-languages-container">
+    <a href="/storyEdit.html" class="sjrk-st-menu-languages-en sjrkc-st-menu-languages-en">English</a> |
+    <a href="/es/storyEdit.html" class="sjrk-st-menu-languages-es sjrkc-st-menu-languages-es" lang="es">Español</a>
+</div>
+<div class="sjrk-st-page-header-main-title">
+    <p></p>
+</div>
+</div>
+        <div class="sjrk-st-story-editor sjrkc-st-story-editor" id="fluid-id-bdtflb15-2597">    <form hidden="" lang="es" class="sjrk-st-story-editor-form sjrkc-st-story-editor-form">
+    <div class="sjrk-st-story-editor-edit-story-step sjrkc-st-story-editor-edit-story-step">
+        <div class="sjrk-st-story-editor-buttons-container">
+            <div class="sjrk-st-button-text-block-container sjrk-st-image-button-container">
+                <button class="sjrk-st-button sjrk-st-button-text-block sjrkc-st-button-text-block" type="button"><span class="sjrk-st-button-text">Agrega un bloque de texto</span></button>
+            </div>
+            <div class="sjrk-st-button-image-block-container sjrk-st-image-button-container">
+                <button class="sjrk-st-button sjrk-st-button-image-block sjrkc-st-button-image-block" type="button"><span class="sjrk-st-button-text">Agrega un bloque de imagen</span></button>
+            </div>
+            <div class="sjrk-st-button-audio-block-container sjrk-st-image-button-container">
+                <button class="sjrk-st-button sjrk-st-button-audio-block sjrkc-st-button-audio-block" type="button"><span class="sjrk-st-button-text">Agrega un bloque de audio</span></button>
+            </div>
+            <div class="sjrk-st-button-video-block-container sjrk-st-image-button-container">
+                <button class="sjrk-st-button sjrk-st-button-video-block sjrkc-st-button-video-block" type="button"><span class="sjrk-st-button-text">Agrega un bloque de vídeo</span></button>
+            </div>
+            <div class="sjrk-st-button-remove-blocks-container sjrk-st-image-button-container">
+                <button class="sjrk-st-button sjrk-st-button-remove-blocks sjrkc-st-button-remove-blocks" type="button"><span class="sjrk-st-button-text">Eliminar bloques seleccionados</span></button>
+            </div>
+        </div>
+        <!-- area where blocks will be added -->
+        <div class="sjrk-st-story-editor-content sjrkc-st-story-editor-content" id="fluid-id-bdtflb15-5218" role="list" aria-multiselectable="false" aria-readonly="false" aria-disabled="false" tabindex="0"></div>
+        <div class="sjrk-st-button-container">
+            <button type="button" class="sjrk-st-story-editor-next sjrkc-st-story-editor-next">
+                <span>Mas</span>
+                <span class="sjrk-st-story-editor-next-arrow"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="sjrk-st-story-editor-metadata-step sjrkc-st-story-editor-metadata-step">
+            <div class="sjrk-st-label-container">
+                <label for="title-bdtflb15-5086">Título de la historia (opcional)</label>
+            </div>
+            <div>
+                <input id="title-bdtflb15-5086" class="sjrk-st-story-title sjrkc-st-story-title" placeholder="Ingresa el título aquí">
+            </div>
+
+            <div class="sjrk-st-label-container">
+                <label for="author-bdtflb15-5087">Nombre del autor (opcional)</label>
+            </div>
+            <div>
+                <input id="author-bdtflb15-5087" class="sjrk-st-story-author sjrkc-st-story-author" placeholder="Introduzca su nombre aquí">
+            </div>
+
+            <div class="sjrk-st-label-container">
+                <label for="keywords-bdtflb15-5088">Palabras claves (opcional)</label>
+            </div>
+            <div>
+                <input id="keywords-bdtflb15-5088" class="sjrk-st-story-tags sjrkc-st-story-tags" type="text" placeholder="Palabra 1, Palabra 2">
+            </div>
+
+        <div class="sjrk-st-story-editor-footer-container">
+            <div>
+                <button type="button" class="sjrk-st-story-editor-previous sjrkc-st-story-editor-previous">
+                    <span class="sjrk-st-story-editor-previous-arrow"></span>
+                    <span>Atrás</span>
+                </button>
+            </div>
+            <div class="sjrk-st-link-container-right">
+                <button class="sjrk-st-story-submit sjrkc-st-story-submit" type="button">Enviar</button>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+        <div class="sjrk-st-story-viewer sjrkc-st-story-previewer" id="fluid-id-bdtflb15-2596" style="display: none;"><div lang="es" class="sjrkc-st-story-viewer-main-container sjrk-st-story-viewer-main-container" id="fluid-id-bdtflb15-5497"><div class="flc-orator-controller fl-orator-controller" id="fluid-id-bdtflb15-5502"><div class="fl-icon-orator" aria-hidden="true"></div><button type="button" class="flc-orator-controller-playToggle" aria-label="play"><span class="fl-orator-controller-playToggle fl-icon-orator-playToggle" aria-hidden="true"></span></button></div>
+    <div class="sjrkc-st-story-details">
+
+        <div hidden="" class="sjrk-st-language-container">
+            Idioma(s): <span class="sjrkc-st-story-language sjrk-st-story-language">
+                
+            </span>
+        </div>
+
+
+        <div class="sjrkc-st-story-content sjrk-st-story-content"></div>
+    </div>
+</div>
+    <div lang="es" class="sjrk-st-important-notes">
+        <h2>Notas importantes</h2>
+        <ul>
+<li>Su historia publicada será licenciada bajo CC BY 4.0.</li>
+<li>No podrás realizar cambios en tu historia una vez que la publiques.</li>
+<li>Puede eliminar su historia enviando un correo electrónico a stories@idrc.ocadu.ca</li>
+</ul>
+
+    </div>
+    <div lang="es" class="sjrk-st-story-viewer-footer-container">
+        <div>
+            <button type="button" class="sjrk-st-story-viewer-previous sjrkc-st-story-viewer-previous">
+                <span class="sjrk-st-story-viewer-previous-arrow"></span>
+                <span>Atrás</span>
+            </button>
+        </div>
+        <div>
+                <button hidden="" type="button" class="sjrkc-st-story-share sjrk-st-story-share">Comparte mi historia</button>
+        </div>
+        <div class="sjrkc-st-story-share-progress sjrk-st-story-share-progress" role="alert">
+            <div class="sjrk-st-story-share-progress-indicator" aria-describedby="sjrkc-st-story-share-progress-text"></div>
+            <span id="sjrkc-st-story-share-progress-text"></span>
+        </div>
+        <div class="sjrkc-st-story-share-response sjrk-st-story-share-response" role="alert">
+             <span class="sjrkc-st-story-share-response-text"></span>
+        </div>
+    </div>
+</div>
+        <div class="sjrk-st-story-notFoundNotice sjrkc-st-story-notFoundNotice"></div>
+    </div>
+    <div class="sjrk-edit-right-container sjrkc-edit-right-container"><div class="sjrk-st-karisma-sidebar sjrk-st-karisma-sidebar-right">
+    <img src="/images/sidebar-bananabagpencilbook.png" alt="plátanos, una mochila, un lápiz y un libro abierto">
+</div>
+</div>
+</main>
+
+<div class="sjrk-st-etiquette-container sjrkc-st-etiquette-container"></div>
+<footer class="sjrk-st-page-footer-container sjrkc-st-page-footer-container"><p class="sjrk-st-page-footer-text-container">Alojado por <a href="https://netlify.com" rel="external">Netlify</a>.</p></footer>
+
+
+
+
+</body></html>

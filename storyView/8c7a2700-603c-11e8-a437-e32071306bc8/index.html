@@ -1,0 +1,176 @@
+<!DOCTYPE html><html style="font-size: 16px;"><head>
+<title>Pajaro | The Storytelling Project</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<script src="/js/infusion-all.js"></script><style type="text/css">.fl-progEnhance-basic, .fl-ProgEnhance-basic { display: none; } .fl-progEnhance-enhanced, .fl-ProgEnhance-enhanced { display: block; }</style>
+
+<!-- UIO stylesheets -->
+<link rel="stylesheet" type="text/css" href="/css/Enactors.css">
+<link rel="stylesheet" type="text/css" href="/css/PrefsEditor.css">
+<link rel="stylesheet" type="text/css" href="/css/SeparatedPanelPrefsEditor.css">
+<link rel="stylesheet" type="text/css" href="/css/Orator.css">
+
+<script src="/js/handlebars.js"></script>
+<script src="/js/markdown-it.js"></script>
+<script src="/js/binder.js"></script>
+<script src="/js/transforms.js"></script>
+<script src="/js/equals.js"></script>
+<script src="/js/helper.js"></script>
+<script src="/js/jsonify.js"></script>
+<script src="/js/md-common.js"></script>
+<script src="/js/messageHelper.js"></script>
+<script src="/js/renderer.js"></script>
+<script src="/js/ajaxCapable.js"></script>
+<script src="/js/hasRequiredOptions.js"></script>
+<script src="/js/md-client.js"></script>
+<script src="/js/messageHelper_1.js"></script>
+<script src="/js/renderer_1.js"></script>
+<script src="/js/templateAware.js"></script>
+<script src="/js/templateFormControl.js"></script>
+<script src="/js/templateManager_1.js"></script>
+<script src="/js/templateMessage.js"></script>
+<script src="/js/templateRequestAndRender.js"></script>
+
+<script src="/js/dynamicViewComponentManager.js"></script>
+<script src="/js/binder_1.js"></script>
+<script src="/js/block.js"></script>
+<script src="/js/block-audio.js"></script>
+<script src="/js/block-image.js"></script>
+<script src="/js/block-text.js"></script>
+<script src="/js/block-video.js"></script>
+<script src="/js/block-timeBased.js"></script>
+<script src="/js/blockUi.js"></script>
+<script src="/js/blockUi-audioBlockViewer.js"></script>
+<script src="/js/blockUi-imageBlockViewer.js"></script>
+<script src="/js/blockUi-textBlockViewer.js"></script>
+<script src="/js/blockUi-videoBlockViewer.js"></script>
+<script src="/js/blockUi-timeBased.js"></script>
+<script src="/js/base-page-storyView.js"></script>
+<script src="/js/base-page-storyNotFound.js"></script>
+<script src="/js/base-page.js"></script>
+<script src="/js/story.js"></script>
+<script src="/js/templateManager.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/ui-authorControls.js"></script>
+<script src="/js/ui-menu.js"></script>
+<script src="/js/ui-storyViewer.js"></script>
+<script src="/js/uploader.js"></script>
+<script src="/js/transforms_1.js"></script>
+<script src="/js/UIOMultilingualDemo.js"></script>
+
+<link rel="stylesheet" href="/css/normalize.css">
+
+<link href="/css/css_1.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/storyTelling.css">
+<link rel="stylesheet" href="/css/fluid.css">
+
+<script src="/js/storyTellingServerUI.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/css/karisma.css"></head>
+<body class="fl-theme-prefsEditor-default" style="line-height: 1.15;">
+
+<div class="sjrk-prefsEditor-container">
+    <!-- BEGIN markup for Preference Editor -->
+   <div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel" id="fluid-id-6ykaqg7n-1147">
+       <!--
+           This div is for the sliding panel bar that shows and hides the Preference Editor controls in the mobile view.
+           A separate panel bar for mobile displays is needed to preserver the correct tab order.
+       -->
+       <div class="fl-panelBar fl-panelBar-smallScreen">
+           <span class="fl-prefsEditor-buttons">
+               <button class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide" role="button" aria-controls="fluid-id-6ykaqg7n-1979" aria-label="Show Display Preferences" aria-pressed="false" aria-expanded="false">+ Show Preferences</button>
+               <button class="flc-prefsEditor-reset fl-prefsEditor-reset" aria-controls="fluid-id-6ykaqg7n-1979" role="button" style="display: none;"><span class="fl-icon-undo"></span> Reset</button>
+           </span>
+       </div>
+
+       <!-- This is the div that will contain the Preference Editor component -->
+       <div class="flc-slidingPanel-panel flc-prefsEditor-iframe" id="fluid-id-6ykaqg7n-1979" aria-label="User Preferences" role="group" style="height: 0px;"><iframe class="flc-iframe fl-prefsEditor-separatedPanel-iframe" src="../../SeparatedPanelPrefsEditorFrame.html" style="display: none; height: 0px;"></iframe></div>
+
+       <!--
+           This div is for the sliding panel bar that shows and hides the Preference Editor controls in the desktop view.
+           A separate panel bar for desktop displays is needed to preserver the correct tab order.
+       -->
+       <div class="fl-panelBar fl-panelBar-wideScreen">
+           <span class="fl-prefsEditor-buttons">
+               <button class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide" role="button" aria-controls="fluid-id-6ykaqg7n-1979" aria-label="Show Display Preferences" aria-pressed="false" aria-expanded="false">+ Show Preferences</button>
+               <button class="flc-prefsEditor-reset fl-prefsEditor-reset" aria-controls="fluid-id-6ykaqg7n-1979" role="button" style="display: none;"><span class="fl-icon-undo"></span> Reset</button>
+           </span>
+       </div>
+   </div>
+   <!-- END markup for Preference Editor -->
+</div>
+
+<div class="sjrk-st-author-controls-container sjrkc-st-author-controls-container"></div>
+<header class="sjrk-st-page-header-container sjrkc-st-page-header-container"><div class="sjrk-st-page-header-logo-container">
+    <a href="/">
+        <img class="sjrk-st-page-header-logo" alt="" src="/images/logo.png">
+    </a>
+</div>
+<div class="sjrk-st-page-header">
+    <span class="sjrk-st-page-header-main-title">The planet is the school</span>
+</div>
+</header>
+
+<!-- This div is for the table of contents feature provided by the Preferences Editor -->
+<div class="flc-toc-tocContainer toc"></div>
+<main class="sjrk-st-page-content-container">
+    <div class="sjrk-main-container">
+        <div class="sjrk-st-menu sjrkc-st-menu" id="fluid-id-6ykaqg7n-3756">    <div lang="en" class="sjrk-st-menu-story-builder-title">
+            <a href="/storyBrowse.html">Browse stories</a>
+    </div>
+<div lang="en" class="sjrk-st-menu-languages-container">
+    <a href="/storyView/8c7a2700-603c-11e8-a437-e32071306bc8/" class="sjrk-st-menu-languages-en sjrkc-st-menu-languages-en">English</a> |
+    <a href="/es/storyView/8c7a2700-603c-11e8-a437-e32071306bc8/" class="sjrk-st-menu-languages-es sjrkc-st-menu-languages-es" lang="es">Español</a>
+</div>
+<div class="sjrk-st-page-header-main-title">
+    <p></p>
+</div>
+</div>
+        <div class="sjrk-st-story-viewer sjrkc-st-story-viewer" id="fluid-id-6ykaqg7n-2908"><div lang="en" class="sjrkc-st-story-viewer-main-container sjrk-st-story-viewer-main-container" id="fluid-id-6ykaqg7n-3746"><div class="flc-orator-controller fl-orator-controller" id="fluid-id-6ykaqg7n-3751"><div class="fl-icon-orator" aria-hidden="true"></div><button type="button" class="flc-orator-controller-playToggle" aria-label="play"><span class="fl-orator-controller-playToggle fl-icon-orator-playToggle" aria-hidden="true"></span></button></div>
+    <div class="sjrkc-st-story-details">
+            <h2 class="sjrkc-st-story-title sjrk-st-story-title">Pajaro</h2>
+            <p class="sjrkc-st-story-author sjrk-st-story-author">by Dana</p>
+
+        <div hidden="" class="sjrk-st-language-container">
+            Language(s): <span class="sjrkc-st-story-language sjrk-st-story-language">
+                
+            </span>
+        </div>
+
+        <div class="sjrk-st-tags-container">
+            Keywords:
+            <ul class="sjrkc-st-story-list-tags sjrk-st-story-list-tags">
+                    <li>pajaro, </li>
+                    <li>amarillo, </li>
+                    <li>historia</li>
+            </ul>
+        </div>
+
+        <div class="sjrkc-st-story-content sjrk-st-story-content"><div class="sjrkc-dynamic-view-component sjrk-dynamic-view-component sjrkc-dynamic-view-component-6ykaqg7n-2948">    <div class="sjrk-st-block" lang="">
+        <h3 class="sjrk-st-block-heading-view"><p>introducíon</p>
+</h3>
+        <div class="sjrk-st-block-text-view"><p>una historia bonita</p>
+</div>
+    </div>
+</div><div class="sjrkc-dynamic-view-component sjrk-dynamic-view-component sjrkc-dynamic-view-component-6ykaqg7n-3231">    <div class="sjrk-st-block" lang="">
+        <h3 class="sjrk-st-block-heading-view"><p>kinglet</p>
+</h3>
+        <img class="sjrk-st-block-media-preview" src="/images/8c778ef0-603c-11e8-a437-e32071306bc8.jpg" alt="pajaro">
+        <p class="sjrk-st-block-text-view"></p><p>pajaro pequeño con amarillo</p>
+<p></p>
+    </div>
+</div></div>
+    </div>
+</div>
+</div>
+        <div class="sjrk-st-story-notFoundNotice sjrkc-st-story-notFoundNotice"></div>
+    </div>
+</main>
+
+<footer class="sjrk-st-page-footer-container sjrkc-st-page-footer-container"><p class="sjrk-st-page-footer-text-container">Hosted by <a href="https://netlify.com" rel="external">Netlify</a>.</p></footer>
+
+
+
+
+</body></html>

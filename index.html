@@ -1,0 +1,128 @@
+<!DOCTYPE html><html style="font-size: 16px;"><head>
+<title>El planeta es la escuela</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<script src="/js/infusion-all.js"></script><style type="text/css">.fl-progEnhance-basic, .fl-ProgEnhance-basic { display: none; } .fl-progEnhance-enhanced, .fl-ProgEnhance-enhanced { display: block; }</style>
+
+<!-- UIO stylesheets -->
+<link rel="stylesheet" type="text/css" href="/css/Enactors.css">
+<link rel="stylesheet" type="text/css" href="/css/PrefsEditor.css">
+<link rel="stylesheet" type="text/css" href="/css/SeparatedPanelPrefsEditor.css">
+
+<script src="/js/handlebars.js"></script>
+<script src="/js/markdown-it.js"></script>
+<script src="/js/binder.js"></script>
+<script src="/js/transforms.js"></script>
+<script src="/js/equals.js"></script>
+<script src="/js/helper.js"></script>
+<script src="/js/jsonify.js"></script>
+<script src="/js/md-common.js"></script>
+<script src="/js/messageHelper.js"></script>
+<script src="/js/renderer.js"></script>
+<script src="/js/ajaxCapable.js"></script>
+<script src="/js/hasRequiredOptions.js"></script>
+<script src="/js/md-client.js"></script>
+<script src="/js/messageHelper_1.js"></script>
+<script src="/js/renderer_1.js"></script>
+<script src="/js/templateAware.js"></script>
+<script src="/js/templateFormControl.js"></script>
+<script src="/js/templateManager_1.js"></script>
+<script src="/js/templateMessage.js"></script>
+<script src="/js/templateRequestAndRender.js"></script>
+
+<script src="/js/base-page.js"></script>
+<script src="/js/story.js"></script>
+<script src="/js/templateManager.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/ui-authorControls.js"></script>
+<script src="/js/ui-menu.js"></script>
+<script src="/js/UIOMultilingualDemo.js"></script>
+
+<link rel="stylesheet" href="/css/normalize.css">
+<link href="/css/css.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/fluid.css">
+<link rel="stylesheet" href="/css/storyTelling.css">
+
+<script src="/js/karisma.js"></script>
+<link rel="stylesheet" href="/css/karisma.css">
+<link rel="stylesheet" href="/css/karisma-welcome.css">
+</head>
+<body class="fl-theme-prefsEditor-default" style="line-height: 1.15;">
+
+<div class="sjrk-prefsEditor-container">
+    <!-- BEGIN markup for Preference Editor -->
+   <div class="flc-prefsEditor-separatedPanel fl-prefsEditor-separatedPanel" id="fluid-id-4mbcaxzr-1124">
+	   <!--
+		   This div is for the sliding panel bar that shows and hides the Preference Editor controls in the mobile view.
+		   A separate panel bar for mobile displays is needed to preserver the correct tab order.
+	   -->
+	   <div class="fl-panelBar fl-panelBar-smallScreen">
+		   <span class="fl-prefsEditor-buttons">
+			   <button class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide" role="button" aria-controls="fluid-id-4mbcaxzr-1949" aria-label="Show Display Preferences" aria-pressed="false" aria-expanded="false">+ Show Preferences</button>
+			   <button class="flc-prefsEditor-reset fl-prefsEditor-reset" aria-controls="fluid-id-4mbcaxzr-1949" role="button" style="display: none;"><span class="fl-icon-undo"></span> Reset</button>
+		   </span>
+	   </div>
+
+	   <!-- This is the div that will contain the Preference Editor component -->
+	   <div class="flc-slidingPanel-panel flc-prefsEditor-iframe" id="fluid-id-4mbcaxzr-1949" aria-label="User Preferences" role="group" style="height: 0px;"><iframe class="flc-iframe fl-prefsEditor-separatedPanel-iframe" src="SeparatedPanelPrefsEditorFrame.html" style="display: none; height: 0px;"></iframe></div>
+
+	   <!--
+		   This div is for the sliding panel bar that shows and hides the Preference Editor controls in the desktop view.
+		   A separate panel bar for desktop displays is needed to preserver the correct tab order.
+	   -->
+	   <div class="fl-panelBar fl-panelBar-wideScreen">
+		   <span class="fl-prefsEditor-buttons">
+			   <button class="flc-slidingPanel-toggleButton fl-prefsEditor-showHide" role="button" aria-controls="fluid-id-4mbcaxzr-1949" aria-label="Show Display Preferences" aria-pressed="false" aria-expanded="false">+ Show Preferences</button>
+			   <button class="flc-prefsEditor-reset fl-prefsEditor-reset" aria-controls="fluid-id-4mbcaxzr-1949" role="button" style="display: none;"><span class="fl-icon-undo"></span> Reset</button>
+		   </span>
+	   </div>
+   </div>
+   <!-- END markup for Preference Editor -->
+</div>
+
+<div class="sjrk-st-author-controls-container sjrkc-st-author-controls-container"></div>
+<div class="sjrk-st-menu sjrkc-st-menu" id="fluid-id-4mbcaxzr-2878"><div lang="en" class="sjrk-st-menu-languages-container">
+    <a href="/" class="sjrk-st-menu-languages-en sjrkc-st-menu-languages-en">English</a> |
+    <a href="/es/" class="sjrk-st-menu-languages-es sjrkc-st-menu-languages-es" lang="es">Español</a>
+</div>
+<div class="sjrk-st-page-header-main-title">
+    <p></p>
+</div>
+</div>
+<header class="sjrk-st-page-header-container sjrkc-st-page-header-container"><div class="sjrk-st-page-header-logo-container">
+    <a href="/">
+        <img class="sjrk-st-page-header-logo" alt="" src="/images/logo.png">
+    </a>
+</div>
+<div class="sjrk-st-page-header">
+    <span class="sjrk-st-page-header-main-title">The planet is the school</span>
+</div>
+</header>
+
+<!-- This div is for the table of contents feature provided by the Preferences Editor -->
+<div class="flc-toc-tocContainer toc"></div>
+<div class="sjrk-st-page-content-container">
+    <div class="sjrk-main-container">
+        <div class="sjrk-st-welcome sjrkc-st-welcome">
+<div class="sjrk-st-karisma-welcome-container">
+    <div class="sjrk-st-karisma-welcome-mascot-container">
+        <img src="/images/person-waving.png" alt="a nice person waving and a little bird at their feet">
+    </div>
+    <div class="sjrk-st-karisma-welcome-message-container">
+        <h1 class="sjrk-st-karisma-welcome-message">Welcome!</h1>
+        <div class="sjrk-st-karisma-welcome-button-container">
+            <a href="/storyEdit.html">tell a story</a>
+            <a href="/storyBrowse.html">browse stories</a>
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+</div>
+
+<footer class="sjrk-st-page-footer-container sjrkc-st-page-footer-container"><p class="sjrk-st-page-footer-text-container">Hosted by <a href="https://netlify.com" rel="external">Netlify</a>.</p></footer>
+
+
+
+</body></html>
